@@ -1,0 +1,36 @@
+AdminUser.create!(
+  email: 'admin@example.com',
+  password: 'p@ssw0rd',
+  password_confirmation: 'p@ssw0rd'
+)
+
+sector = Sector.create!(name: 'Produção Vegetal')
+
+ss = SubSector.find_or_create_by(name: 'Cereais, Leguminosas e Oleaginosas', sector: sector); fa = Family.find_or_create_by(name: 'Cereais', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Cereais, Leguminosas e Oleaginosas', sector: sector); fa = Family.find_or_create_by(name: 'Leguminosas e Oleaginosas', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Gramíneas, Forrageiras e Têxteis', sector: sector); fa = Family.find_or_create_by(name: 'Gramíneas e Forrageiras', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Gramíneas, Forrageiras e Têxteis', sector: sector); fa = Family.find_or_create_by(name: 'Plantas Têxteis', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Flores e Plantas Ornamentais', sector: sector); fa = Family.find_or_create_by(name: 'Flores', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Flores e Plantas Ornamentais', sector: sector); fa = Family.find_or_create_by(name: 'Paisagismo e Plantas Ornamentais', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Ervas e Plantas Aromáticas', sector: sector); fa = Family.find_or_create_by(name: 'Ervas Aromáticas', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Ervas e Plantas Aromáticas', sector: sector); fa = Family.find_or_create_by(name: 'Plantas Comestíveis', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Ervas e Plantas Aromáticas', sector: sector); fa = Family.find_or_create_by(name: 'Plantas Estimulantes', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Ervas e Plantas Aromáticas', sector: sector); fa = Family.find_or_create_by(name: 'Temperos', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Horticultura', sector: sector); fa = Family.find_or_create_by(name: 'Bulbos, Raízes e Tubérculos', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Horticultura', sector: sector); fa = Family.find_or_create_by(name: 'Verduras e Folhosas', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Horticultura', sector: sector); fa = Family.find_or_create_by(name: 'Frutos e Legumes', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Fruticultura', sector: sector); fa = Family.find_or_create_by(name: 'Pequenos Frutos', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Fruticultura', sector: sector); fa = Family.find_or_create_by(name: 'Frutos Tropicais', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Fruticultura', sector: sector); fa = Family.find_or_create_by(name: 'Citrinos', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Fruticultura', sector: sector); fa = Family.find_or_create_by(name: 'Pomóideas e Prunóideas', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Fruticultura', sector: sector); fa = Family.find_or_create_by(name: 'Frutos de Casca Rija', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Viticultura e Olivicultura', sector: sector); fa = Family.find_or_create_by(name: 'Viticultura', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Viticultura e Olivicultura', sector: sector); fa = Family.find_or_create_by(name: 'Olivicultura', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Silvicultura e Exploração Florestal', sector: sector); fa = Family.find_or_create_by(name: 'Productos Madeireiros', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Silvicultura e Exploração Florestal', sector: sector); fa = Family.find_or_create_by(name: 'Productos não-madeireiros', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Silvicultura e Exploração Florestal', sector: sector); fa = Family.find_or_create_by(name: 'Viveiros Florestais', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Silvicultura e Exploração Florestal', sector: sector); fa = Family.find_or_create_by(name: 'Serviços Florestais', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Propagação Vegetativa e tecnologia de sementes', sector: sector); fa = Family.find_or_create_by(name: 'Sementes', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Propagação Vegetativa e tecnologia de sementes', sector: sector); fa = Family.find_or_create_by(name: 'Materiais Vegetativos', sector: sector, sub_sector: ss)
+ss = SubSector.find_or_create_by(name: 'Aquacultura', sector: sector); fa = Family.find_or_create_by(name: 'Produção de Algas', sector: sector, sub_sector: ss)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
