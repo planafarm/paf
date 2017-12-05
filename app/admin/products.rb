@@ -1,12 +1,14 @@
-ActiveAdmin.register Sector do
+ActiveAdmin.register Product do
   permit_params :name, :is_active, :info
-  menu parent: "Sectors"
 
   index do
     selectable_column
     column :id
     column :name
     column :is_active
+    column :family
+    column :sub_sector
+    column :sector
     actions
   end
 
@@ -14,7 +16,7 @@ ActiveAdmin.register Sector do
     f.inputs "Details" do
       f.input :name
       f.input :is_active
-      f.input :info, as: :text, input_html: { class: "jsoneditor-target" }
+      f.input :info, as: :text
     end
     f.actions
   end

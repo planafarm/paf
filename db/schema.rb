@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017102329) do
+ActiveRecord::Schema.define(version: 20171205185711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,23 @@ ActiveRecord::Schema.define(version: 20171017102329) do
     t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "info"
     t.index ["sector_id"], name: "index_families_on_sector_id"
     t.index ["sub_sector_id"], name: "index_families_on_sub_sector_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.bigint "sub_sector_id"
+    t.bigint "sector_id"
+    t.bigint "family_id"
+    t.boolean "is_active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.json "info"
+    t.index ["family_id"], name: "index_products_on_family_id"
+    t.index ["sector_id"], name: "index_products_on_sector_id"
+    t.index ["sub_sector_id"], name: "index_products_on_sub_sector_id"
   end
 
   create_table "sectors", force: :cascade do |t|
@@ -62,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
     t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "info"
   end
 
   create_table "sub_sectors", force: :cascade do |t|
@@ -70,6 +86,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
     t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "info"
     t.index ["sector_id"], name: "index_sub_sectors_on_sector_id"
   end
 

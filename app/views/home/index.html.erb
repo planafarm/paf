@@ -1,0 +1,23 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title">Explorar os sectores de actividade</h1>
+    <%- @records.each_slice(3).each do |sectors| %>
+      <div class="tile is-ancestor">
+        <%- sectors.each do |sector| %>
+          <div class="tile is-parent is-4">
+            <div class="tile is-child box">
+              <p class="title"><%= sector.name %></p>
+              <p>
+                <% if sector.info && sector.info["pic"] %>
+                  <figure class="image is-4by3" style="width: 100%;">
+                    <%= image_tag(sector.info["pic"]) %>
+                  </figure>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        <%- end %>
+      </div>
+    <%- end %>
+  </div>
+</section>

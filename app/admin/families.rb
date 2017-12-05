@@ -1,7 +1,6 @@
 ActiveAdmin.register Family do
-  permit_params :name, :is_active
-  config.sort_order = "id_asc"
-  menu priority: 5
+  permit_params :name, :is_active, :info
+  menu parent: "Sectors"
 
   index do
     selectable_column
@@ -11,5 +10,16 @@ ActiveAdmin.register Family do
     column :sub_sector
     column :sector
     actions
+  end
+
+  form do |f|
+    f.inputs "Details" do
+      f.input :name
+      # f.input :sector
+      # f.input :sub_sector
+      f.input :is_active
+      f.input :info, as: :text
+    end
+    f.actions
   end
 end
