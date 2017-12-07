@@ -4,7 +4,41 @@ div.jsoneditor-tree {
   overflow: inherit;
   button {
     background: transparent asset-url("jsoneditor/dist/img/jsoneditor-icons.svg");
+
+    &.jsoneditor-dragarea {
+      background: asset-url("jsoneditor/dist/img/jsoneditor-icons.svg") -72px -72px;
+    }
   }
+
+  .jsoneditor-schema-error {
+    background: url("img/jsoneditor-icons.svg")  -168px -48px;
+  }
+}
+
+div.jsoneditor-menu > button,
+div.jsoneditor-menu > div.jsoneditor-modes > button {
+  background: transparent asset-url("jsoneditor/dist/img/jsoneditor-icons.svg");
+}
+
+.jsoneditor-text-errors .jsoneditor-schema-error {
+  background: asset-url("jsoneditor/dist/img/jsoneditor-icons.svg")  -168px -48px;
+}
+
+div.jsoneditor-contextmenu div.jsoneditor-icon {
+  background-image: asset-url("jsoneditor/dist/img/jsoneditor-icons.svg");
+}
+
+div.jsoneditor-contextmenu ul li button div.jsoneditor-expand {
+  background: asset-url("jsoneditor/dist/img/jsoneditor-icons.svg") 0 -72px;
+}
+
+div.jsoneditor-menu > button,
+div.jsoneditor-menu > div.jsoneditor-modes > button {
+  background: transparent asset-url("jsoneditor/dist/img/jsoneditor-icons.svg");
+}
+
+table.jsoneditor-search button {
+  background: asset-url("jsoneditor/dist/img/jsoneditor-icons.svg");
 }
 
 .jsoneditor-container, .jsoneditor-contextmenu {
