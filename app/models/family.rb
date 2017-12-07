@@ -1,6 +1,7 @@
 class Family < ApplicationRecord
   belongs_to :sub_sector
   belongs_to :sector
+  has_many :products
 
   # Allows active_admin to submit json as text and have it stored as json
   def info=(value)

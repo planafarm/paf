@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+yarn eslint app/assets/javascripts/application.js app/assets/javascripts/app

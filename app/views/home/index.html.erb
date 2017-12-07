@@ -1,21 +1,40 @@
 <section class="section">
   <div class="container">
-    <h1 class="title">Explorar os sectores de actividade</h1>
-    <%- @records.each_slice(3).each do |sectors| %>
+    <% if @record %>
+      <h1 class="title"><%= @record["name"] %></h1>
+    <% else %>
+      <h1 class="title">Explorar os sectores de actividade</h1>
+    <% end %>
+
+    <% if @record %>
+      <% if @record.info && @record["info"]["form"] %>
+        <iframe
+          class="jotform_iframe"
+          onload="window.parent.scrollTo(0,0)"
+          allowtransparency="true"
+          src="https://form.jotformeu.com/73384920503354"
+          frameborder="0"
+          style="width: 1px;min-width: 100%;height:539px;border:none;"
+          scrolling="no">
+        </iframe>
+      <% end %>
+    <% end %>
+
+    <%- @records.each_slice(3).each do |records| %>
       <div class="tile is-ancestor">
-        <%- sectors.each do |sector| %>
+        <%- records.each do |record| %>
           <div class="tile is-parent is-4">
             <div class="tile is-child box">
-              <p class="title"><%= sector.name %></p>
-              <p>
-                <% if sector.info && sector.info["pic"] %>
-                  <figure class="image is-4by3" style="width: 100%;">
-                    <%= image_tag(sector.info["pic"]) %>
-                  </figure>
-                <% end %>
-
-                <% if sector.info && sector.info["form"] %>
-                  <script type="text/javascript" src="https://form.jotformeu.com/jsform/<%=sector.info["form"].gsub(/[^\d]/, "")%>"></script>
+              <%= link_to(record["link"]) do %>
+                <p class="title"><%= record["name"] %></p>
+              <% end %>
+              <p style="margin-top: 0.5rem;">
+                <% if record["info"] && record["info"]["pic"] %>
+                  <%= link_to(record["link"]) do %>
+                    <figure class="image is-4by3" style="width: 100%;">
+                      <%= image_tag(record["info"]["pic"]) %>
+                    </figure>
+                  <% end %>
                 <% end %>
               </p>
             </div>

@@ -4,9 +4,16 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "bulma": "^0.6.1",
-    "jsoneditor": "^5.11.0"
+    "jsoneditor": "^5.11.0",
+    "rails-ujs": "^5.1.4",
+    "turbolinks": "^5.0.3"
   },
   "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "prettier": "^1.9.1",
     "webpack-dev-server": "^2.9.5"
   }
 }
