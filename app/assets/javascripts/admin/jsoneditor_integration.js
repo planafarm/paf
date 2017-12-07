@@ -1,11 +1,12 @@
 $(function() {
-  return $('.jsoneditor-target').each(function() {
+  return $('.jsoneditor-edit').each(function() {
     var target = $(this);
-    if (target.val() === '') { target.val('[]'); }
+    if (target.val() === '') { target.val('{}'); }
     target.val(target.val().replace(/=>/g, ':'));
     var container = $('<div class="jsoneditor-container">').insertAfter(target);
     var editor = new JSONEditor(container[0], {
-      modes: ['code', 'form', 'text', 'tree', 'view'],
+      search: false,
+      navigationBar: false,
       onChange: function() {
         return target.val(editor.getText());
       }

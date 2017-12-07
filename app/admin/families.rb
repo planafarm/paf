@@ -15,10 +15,8 @@ ActiveAdmin.register Family do
   form do |f|
     f.inputs "Details" do
       f.input :name
-      # f.input :sector
-      # f.input :sub_sector
       f.input :is_active
-      f.input :info, as: :text
+      f.input :info, as: :text, input_html: { class: "jsoneditor-edit" }
     end
     f.actions
   end
