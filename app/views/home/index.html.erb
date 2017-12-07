@@ -13,6 +13,10 @@
                     <%= image_tag(sector.info["pic"]) %>
                   </figure>
                 <% end %>
+
+                <% if sector.info && sector.info["form"] %>
+                  <script type="text/javascript" src="https://form.jotformeu.com/jsform/<%=sector.info["form"].gsub(/[^\d]/, "")%>"></script>
+                <% end %>
               </p>
             </div>
           </div>
