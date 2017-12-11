@@ -3,6 +3,10 @@ class Product < ApplicationRecord
   belongs_to :sector
   belongs_to :family
 
+  def parent
+    family
+  end
+
   # Allows active_admin to submit json as text and have it stored as json
   def info=(value)
     if value.is_a?(String)

@@ -17,4 +17,22 @@ class HomeController < ApplicationController
       @records = Sector.all.map { |e| e.attributes.merge("link" => url_for(sector: e.id)) }
     end
   end
+
+  protected
+
+  def entry_form
+    if @entry_form_set
+      @entry_form
+    else
+      @entry_form_set = true
+      @entry_form = begin
+        compute_entry_form(@record)
+      end
+    end
+  end
+  helper_method :entry_form
+
+  def compute_entry_form(record)
+    record ? (record["info"] || {})["form"] || compute_entry_form(record.parent) : nil
+  end
 end
