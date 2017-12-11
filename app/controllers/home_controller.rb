@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :authenticate_user!
+
   def index # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     if params[:sector]
       @record = Sector.find(params[:sector])

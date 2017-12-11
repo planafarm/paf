@@ -6,11 +6,25 @@
     <title>Planafarm</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- %= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' % -->
     <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render partial: "shared/navbar" %>
+      <%= yield %>
+      <div class="push"></div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Plan-a-Farm</strong>, Todos os direitos reservados 2017.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

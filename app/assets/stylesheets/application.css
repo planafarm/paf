@@ -12,10 +12,7 @@
  *
  *= require_self
  *= require bulma/css/bulma.css
+ *= require app/style.scss
  * = zrequire active_admin
  * = zrequire_tree .
  */
-
-img {
-  object-fit: cover;
-}
