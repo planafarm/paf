@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
   root to: "home#index"
+
+  post 'data', to: 'data#hook'
 end
