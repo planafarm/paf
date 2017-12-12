@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+```sh
+rbenv install 2.4.1
+bundle
+bin/rails db:schema:load
+bin/rails db:seed
+```
 
-* Ruby version
+Choose an ngrok endpoint name, for example you could use: planafarm-yourname. For example, dsgh uses planafarm-dsgh.
 
-* System dependencies
+Create a `.env.local` file and fill it with:
 
-* Configuration
+```
+HOST=planafarm-yourname
+```
 
-* Database creation
+Configure jotform's webhook integration to send to http://planafarm-yourname.ngrok.io/data
+Configure jotform's "Thank you page" to point to http://planafarm-yourname.ngrok.io
 
-* Database initialization
+## Run
 
-* How to run the test suite
+```sh
+pg_ctl -D /usr/local/var/postgres start >/dev/null 2>&1
+bin/rails s
+ngrok http -subdomain=planafarm-yourname 3000
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deploy
 
-* Deployment instructions
-
-* ...
+```sh
+git push heroku master
+```

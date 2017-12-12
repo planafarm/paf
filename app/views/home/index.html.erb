@@ -1,5 +1,15 @@
 <section class="section">
   <div class="container">
+    <%- if @parents.any? %>
+      <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+          <%- @parents.each do |parent| %>
+            <li><%= link_to(parent.name, url_for_record(parent))%></li>
+          <%- end %>
+        </ul>
+      </nav>
+    <%- end %>
+
     <% if @record %>
       <h1 class="title"><%= @record["name"] %></h1>
     <% else %>
@@ -7,6 +17,7 @@
     <% end %>
 
     <% if entry_form %>
+      <template id="jotform_params"><%= @jotform_params.to_json %></template>
       <iframe
         class="jotform_iframe"
         onload="window.parent.scrollTo(0,0)"

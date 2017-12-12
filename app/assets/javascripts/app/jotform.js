@@ -1,13 +1,12 @@
+const toParams = obj => Object.entries(obj).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&');
+
 document.addEventListener('turbolinks:load', () => {
   const iframes = document.getElementsByClassName('jotform_iframe')
+  const paramsObj = JSON.parse(document.getElementById('jotform_params').content.textContent)
+  const paramsStr = toParams(paramsObj)
   Array.prototype.forEach.call(iframes, ifr => {
-    if (window.location.href && window.location.href.indexOf('?') > -1) {
-      var get = window.location.href.substr(window.location.href.indexOf('?') + 1)
-      if (ifr && get.length > 0) {
-        var src = ifr.src
-        src = src.indexOf('?') > -1 ? src + '&' + get : src + '?' + get
-        ifr.src = src
-      }
+    if (ifr && paramsStr.length > 0) {
+      ifr.src = ifr.src.indexOf('?') > -1 ? ifr.src + '&' + paramsStr : ifr.src + '?' + paramsStr
     }
   })
 })
