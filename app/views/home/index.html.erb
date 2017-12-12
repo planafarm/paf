@@ -16,19 +16,6 @@
       <h1 class="title">Explorar os sectores de actividade</h1>
     <% end %>
 
-    <% if entry_form %>
-      <template id="jotform_params"><%= @jotform_params.to_json %></template>
-      <iframe
-        class="jotform_iframe"
-        onload="window.parent.scrollTo(0,0)"
-        allowtransparency="true"
-        src="<%= entry_form %>"
-        frameborder="0"
-        style="width: 1px;min-width: 100%;height:539px;border:none;"
-        scrolling="no">
-      </iframe>
-    <% end %>
-
     <%- @records.each_slice(3).each do |records| %>
       <div class="tile is-ancestor">
         <%- records.each do |record| %>
@@ -51,5 +38,18 @@
         <%- end %>
       </div>
     <%- end %>
+
+    <% if entry_form %>
+      <template id="jotform_params"><%= @jotform_params.to_json %></template>
+      <iframe
+        class="jotform_iframe"
+        onload="window.parent.scrollTo(0,0)"
+        allowtransparency="true"
+        src="<%= entry_form %>"
+        frameborder="0"
+        style="width: 1px;min-width: 100%;height:539px;border:none;"
+        scrolling="no">
+      </iframe>
+    <% end %>
   </div>
 </section>
