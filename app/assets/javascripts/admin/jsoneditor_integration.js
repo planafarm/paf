@@ -1,27 +1,35 @@
 /* global $,JSONEditor */
+function parse(string) {
+  try {
+    return JSON.parse(string)
+  } catch (_error) {
+    return {}
+  }
+}
+
+function instantiateJSONEditor(target, mode) {
+  if (target.val() === '') {
+    target.val('{}')
+  }
+  target.val(target.val().replace(/=>/g, ':'))
+  var container = $('<div class="jsoneditor-container">').insertAfter(target)
+  var editor = new JSONEditor(container[0], {
+    mode: mode,
+    navigationBar: false,
+    onChange: function() {
+      return target.val(editor.getText())
+    },
+    search: false,
+  })
+  editor.set(parse(target.val()))
+  return target.hide()
+}
+
 $(function() {
-  return $('.jsoneditor-edit').each(function() {
-    var target = $(this)
-    if (target.val() === '') {
-      target.val('{}')
-    }
-    target.val(target.val().replace(/=>/g, ':'))
-    var container = $('<div class="jsoneditor-container">').insertAfter(target)
-    var editor = new JSONEditor(container[0], {
-      navigationBar: false,
-      onChange: function() {
-        return target.val(editor.getText())
-      },
-      search: false,
-    })
-    const parsedObj = (function() {
-      try {
-        return JSON.parse(target.val())
-      } catch (_error) {
-        return {}
-      }
-    })()
-    editor.set(parsedObj)
-    return target.hide()
+  $('.jsoneditor-edit').each(function() {
+    instantiateJSONEditor($(this), 'tree')
+  })
+  $('.jsoneditor-view').each(function() {
+    instantiateJSONEditor($(this), 'view')
   })
 })

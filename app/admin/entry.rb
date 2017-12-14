@@ -11,4 +11,21 @@ ActiveAdmin.register Entry do
     column :created_at
     actions
   end
+
+  show do
+    attributes_table do
+      row :user
+      row :index
+      row :sector
+      row :sub_sector
+      row :family
+      row :product
+      row :data do |e|
+        input(value: e.data, class: "jsoneditor-view")
+      end
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
 end

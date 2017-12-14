@@ -11,6 +11,20 @@ ActiveAdmin.register SubSector do
     actions
   end
 
+  show do
+    attributes_table do
+      row :name
+      row :sector
+      row :is_active
+      row :info do |e|
+        input(value: e.info, class: "jsoneditor-view")
+      end
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
+
   form do |f|
     f.inputs "Details" do
       f.input :name
