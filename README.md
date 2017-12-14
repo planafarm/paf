@@ -18,13 +18,13 @@ HOST=planafarm-yourname
 ```
 
 Configure jotform's webhook integration to send to http://planafarm-yourname.ngrok.io/data
-Configure jotform's "Thank you page" to point to http://planafarm-yourname.ngrok.io
 
 ## Run
 
 ```sh
 pg_ctl -D /usr/local/var/postgres start >/dev/null 2>&1
 bin/rails s
+bin/webpack-dev-server
 ngrok http -subdomain=planafarm-yourname 3000
 ```
 
