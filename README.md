@@ -28,6 +28,13 @@ bin/webpack-dev-server
 ngrok http -subdomain=planafarm-yourname 3000
 ```
 
+## Code check
+
+```sh
+bin/rubocop
+yarn eslint app/assets/javascripts
+```
+
 ## Deploy
 
 ```sh

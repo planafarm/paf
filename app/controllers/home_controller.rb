@@ -23,16 +23,16 @@ class HomeController < ApplicationController
   end
 
   protected
-  
+
   def set_jotform_params
-    @jotform_params = { user_id: current_user.id }.merge(set_jotform_params_helper(@record))
+    @jotform_params = { user_id: current_user.id }.merge(jotform_params_helper(@record))
   end
-  
-  def set_jotform_params_helper(record)
+
+  def jotform_params_helper(record)
     if record.nil?
       {}
     else
-      set_jotform_params_helper(record.parent).merge(record.class.name.underscore.to_sym => record.name)
+      jotform_params_helper(record.parent).merge(record.class.name.underscore.to_sym => record.name)
     end
   end
 
@@ -42,14 +42,14 @@ class HomeController < ApplicationController
   helper_method :url_for_record
 
   def set_parents
-    @parents = set_parents_helper(@record&.parent)
+    @parents = parents_helper(@record&.parent)
   end
 
-  def set_parents_helper(record)
+  def parents_helper(record)
     if record.nil?
       []
     else
-      set_parents_helper(record.parent) + [record]
+      parents_helper(record.parent) + [record]
     end
   end
 
