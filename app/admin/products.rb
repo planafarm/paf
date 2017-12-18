@@ -6,17 +6,17 @@ ActiveAdmin.register Product do
     column :id
     column :name
     column :is_active
-    column :family
-    column :sub_sector
     column :sector
+    column :sub_sector
+    column :family
     actions
   end
 
   show do
     attributes_table do
       row :name
-      row :sub_sector
       row :sector
+      row :sub_sector
       row :family
       row :is_active
       row :info do |e|
@@ -36,4 +36,10 @@ ActiveAdmin.register Product do
     end
     f.actions
   end
+
+  filter :sector
+  filter :sub_sector
+  filter :family
+  filter :name
+  filter :is_active
 end

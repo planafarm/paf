@@ -7,16 +7,16 @@ ActiveAdmin.register Family do
     column :id
     column :name
     column :is_active
-    column :sub_sector
     column :sector
+    column :sub_sector
     actions
   end
 
   show do
     attributes_table do
       row :name
-      row :sub_sector
       row :sector
+      row :sub_sector
       row :is_active
       row :info do |e|
         input(value: e.info, class: "jsoneditor-view")
@@ -35,4 +35,10 @@ ActiveAdmin.register Family do
     end
     f.actions
   end
+
+  filter :sector
+  filter :sub_sector
+  filter :products
+  filter :name
+  filter :is_active
 end
