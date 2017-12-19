@@ -1,4 +1,5 @@
 ActiveAdmin.register Entry do
+  menu priority: 1
   index do
     selectable_column
     column :id

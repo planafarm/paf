@@ -1,6 +1,6 @@
-ActiveAdmin.register AdminUser do
+ActiveAdmin.register Agent do
   permit_params :email, :password, :password_confirmation
-  menu parent: "Admin"
+  menu parent: "Companies"
 
   index do
     selectable_column
@@ -18,7 +18,7 @@ ActiveAdmin.register AdminUser do
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs "Agent Details" do
       f.input :email
       f.input :password
       f.input :password_confirmation

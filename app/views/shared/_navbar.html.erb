@@ -6,22 +6,23 @@
       </a>
     </div>
     <div class="navbar-end">
-      <% if current_user %>
+      <% if current_agent %>
         <div class="navbar-item has-dropdown is-hoverable">
           <div class="navbar-link">
             <span class="icon">
               <i class="fa fa-user-o"></i>
             </span>
             <span>
-              <%= current_user.email %>
+              <%= current_agent.email %>
             </span>
           </div>
-          <div class="navbar-dropdown ">
-            <%= link_to "Logout", destroy_user_session_path, class: "navbar-item", method: "DELETE" %>
+          <div class="navbar-dropdown">
+            <%= link_to "Fornecedores", suppliers_path, class: "navbar-item" %>
+            <%= link_to "Logout", destroy_agent_session_path, class: "navbar-item", method: "DELETE" %>
           </div>
         </div>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class: "navbar-item" %>
+        <%= link_to "Login", new_agent_session_path, class: "navbar-item" %>
       <% end %>
     </div>
   </div>

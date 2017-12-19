@@ -8,8 +8,13 @@
           <%= devise_error_messages! %>
 
           <div class="field">
+            <%= f.label :company_name %><br />
+            <%= text_field_tag :company_name, "", autofocus: true, class: "input", name: "agent[company_name]" %>
+          </div>
+
+          <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, class: "input" %>
+            <%= f.email_field :email, class: "input" %>
           </div>
 
           <div class="field">

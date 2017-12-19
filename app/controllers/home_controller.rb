@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_agent!
 
   def index # rubocop:disable Metrics/MethodLength,Metrics/AbcSize
     if params[:sector]
@@ -25,7 +25,7 @@ class HomeController < ApplicationController
   protected
 
   def set_jotform_params
-    @jotform_params = { user_id: current_user.id }.merge(jotform_params_helper(@record))
+    @jotform_params = { user_id: current_agent.id }.merge(jotform_params_helper(@record))
   end
 
   def jotform_params_helper(record)

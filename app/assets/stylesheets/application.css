@@ -11,8 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
- *= require bulma/css/bulma.css
+ *= require app/bulma.scss
  *= require app/style.scss
+ * = zrequire bulma/bulma.sass
  * = zrequire active_admin
  * = zrequire_tree .
  */

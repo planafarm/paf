@@ -1,20 +1,3 @@
-const toParams = obj =>
-  Object.entries(obj)
-    .map(([key, val]) => `${key}=${encodeURIComponent(val)}`)
-    .join('&')
-
-document.addEventListener('turbolinks:load', () => {
-  const iframes = document.getElementsByClassName('jotform_iframe')
-  const jotformParamElement = document.getElementById('jotform_params')
-  const paramsObj = jotformParamElement ? JSON.parse(jotformParamElement.content.textContent) : {}
-  const paramsStr = toParams(paramsObj)
-  Array.prototype.forEach.call(iframes, ifr => {
-    if (ifr && paramsStr.length > 0) {
-      ifr.src = ifr.src.indexOf('?') > -1 ? ifr.src + '&' + paramsStr : ifr.src + '?' + paramsStr
-    }
-  })
-})
-
 const handleIFrameMessage = function(e) {
   const args = e.data.split(':')
   const iframeId = args.length > 2 ? 'JotFormIFrame-' + args[2] : 'JotFormIFrame'

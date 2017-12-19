@@ -1,5 +1,6 @@
 ActiveAdmin.register Product do
   permit_params :name, :is_active, :info
+  menu parent: "Sectors"
 
   index do
     selectable_column
