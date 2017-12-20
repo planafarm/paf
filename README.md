@@ -1,5 +1,7 @@
 # README
 
+This app is deployed at https://planafarm.herokuapp.com
+
 ## Setup
 
 ```sh
@@ -17,7 +19,7 @@ Create a `.env.local` file and fill it with:
 HOST=planafarm-yourname
 ```
 
-Configure jotform's webhook integration to send to http://planafarm-yourname.ngrok.io/data
+Configure a jotform with a webhook integration to send to http://planafarm-yourname.ngrok.io/data
 
 The form should have hidden fields with the names:
 
@@ -27,6 +29,14 @@ The form should have hidden fields with the names:
 * sub_sector
 * family
 * product
+
+In the Admin area, add the jotform quick share url to a the info field of a node (eg: a section, sub_section, family or product), eg:
+
+```json
+{
+  "form": "https://form.jotformeu.com/73524936903361"
+}
+```
 
 ## Run
 
