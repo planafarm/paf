@@ -6,7 +6,7 @@ class DataController < ApplicationController
     if @entry.save
       render json: @entry
     else
-      logger.info @entry.errors
+      logger.info @entry.errors.full_messages
       render json: { errors: @entry.errors }, status: :unprocessable_entity
     end
   end
@@ -14,7 +14,7 @@ class DataController < ApplicationController
   private
 
   def valid_params?
-    entry_attrs.slice(:user_id, :index, :data).all? { |_k, v| v.present? }
+    entry_attrs.slice(:agent_id, :supplier_id, :index, :data).all? { |_k, v| v.present? }
   end
 
   def entry_attrs
@@ -43,7 +43,7 @@ class DataController < ApplicationController
   end
 
   def extract_keys
-    %i[user_id sector sub_sector family product]
+    %i[agent_id supplier_id sector sub_sector family product]
   end
 
   def data

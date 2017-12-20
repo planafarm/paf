@@ -1,6 +1,6 @@
 ActiveAdmin.register Family do
   permit_params :name, :is_active, :info
-  menu parent: "Sectors"
+  menu parent: "Sectors", priority: 3
 
   index do
     selectable_column

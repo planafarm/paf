@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218153102) do
+ActiveRecord::Schema.define(version: 20171219164429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20171218153102) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "agent_id", null: false
     t.string "index", null: false
     t.json "data", null: false
     t.string "sector"
@@ -79,7 +79,8 @@ ActiveRecord::Schema.define(version: 20171218153102) do
     t.string "product"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_entries_on_user_id"
+    t.integer "supplier_id"
+    t.index ["agent_id"], name: "index_entries_on_agent_id"
   end
 
   create_table "families", force: :cascade do |t|

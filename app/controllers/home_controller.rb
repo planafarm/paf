@@ -25,7 +25,7 @@ class HomeController < ApplicationController
   protected
 
   def set_jotform_params
-    @jotform_params = { user_id: current_agent.id }.merge(jotform_params_helper(@record))
+    @jotform_params = { agent_id: current_agent.id }.merge(jotform_params_helper(@record))
   end
 
   def jotform_params_helper(record)

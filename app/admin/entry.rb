@@ -3,7 +3,8 @@ ActiveAdmin.register Entry do
   index do
     selectable_column
     column :id
-    column :user
+    column :agent
+    column :supplier
     column :index
     column :sector
     column :sub_sector
@@ -15,7 +16,8 @@ ActiveAdmin.register Entry do
 
   show do
     attributes_table do
-      row :user
+      row :agent
+      row :supplier
       row :index
       row :sector
       row :sub_sector
