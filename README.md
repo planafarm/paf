@@ -19,6 +19,15 @@ HOST=planafarm-yourname
 
 Configure jotform's webhook integration to send to http://planafarm-yourname.ngrok.io/data
 
+The form should have hidden fields with the names:
+
+* agent_id
+* supplier_id
+* sector
+* sub_sector
+* family
+* product
+
 ## Run
 
 ```sh
